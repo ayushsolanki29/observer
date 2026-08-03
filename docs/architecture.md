@@ -10,8 +10,8 @@ The absolute core of the application. It contains only Typescript `interfaces`, 
 ### 2. Infrastructure
 Contains the concrete implementations of the core interfaces.
 - **Http**: `HtmlFetcher` (Axios)
-- **Parser**: `GtuParser` (Cheerio)
-- **Storage**: `SqliteStorage` (better-sqlite3)
+- **Parser**: `GtuParser`, `GenericParser` (Cheerio)
+- **Storage**: `JsonStorage`
 - **Notification**: `TelegramNotifier` (Axios)
 
 All infrastructure implementations catch library-specific errors and rethrow them as custom Domain Errors to prevent leaking implementation details.
@@ -34,7 +34,7 @@ Contains pure, reusable helper functions:
 ## Execution Flow (main.ts)
 1. Initialize Logger (`logger.ts`).
 2. Load Monitor profiles via `monitorLoader.ts`.
-3. Instantiate Storage (`SqliteStorage`) and Matcher (`RuleMatcher`).
+3. Instantiate Storage (`JsonStorage`) and Matcher (`RuleMatcher`).
 4. Iterate through all active profiles.
 5. Dynamically resolve the required `Fetcher` and `Parser` instances via a simple registry pattern.
 6. Wrap network infrastructure with the `withRetry` utility.
