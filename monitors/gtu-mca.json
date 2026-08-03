@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "id": "gtu-mca",
+  "name": "GTU MCA (2024-2026)",
+  "description": "Monitors GTU for regular Master of Computer Applications (MCA) circulars.",
+  "enabled": true,
+  "tags": ["university", "gtu", "mca"],
+  "website": {
+    "url": "https://www.gtu.ac.in/",
+    "parser": "GtuParser"
+  },
+  "notifications": {
+    "telegram": true
+  },
+  "matching": {
+    "mustMatch": [
+      "MCA",
+      "Master of Computer Applications"
+    ],
+    "shouldMatch": [
+      {
+        "keyword": "Result",
+        "score": 5
+      },
+      {
+        "keyword": "Recheck",
+        "score": 5
+      },
+      {
+        "keyword": "Reassessment",
+        "score": 5
+      },
+      {
+        "keyword": "Exam",
+        "score": 5
+      },
+      {
+        "keyword": "Examination",
+        "score": 5
+      },
+      {
+        "keyword": "Practical",
+        "score": 5
+      },
+      {
+        "keyword": "Time Table",
+        "score": 5
+      },
+      {
+        "keyword": "Schedule",
+        "score": 5
+      },
+      {
+        "keyword": "Reschedule",
+        "score": 5
+      }
+    ],
+    "mustNotMatch": [
+      "Integrated",
+      "Master of Computer Applications (Integrated)",
+      "BCA",
+      "Bachelor of Computer Applications",
+      "Civil",
+      "Mechanical",
+      "Electrical",
+      "Electronics",
+      "Automobile",
+      "Architecture",
+      "Diploma",
+      "B.E.",
+      "Pharmacy",
+      "Doctor of Pharmacy",
+      "MBA",
+      "M.Tech",
+      "B.Voc",
+      "Bachelor in Vocation",
+      "Hotel Management"
+    ],
+    "minimumScore": 5
+  }
+}
