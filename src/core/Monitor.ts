@@ -8,6 +8,12 @@ export interface Monitor {
   website: {
     url: string;
     parser: string;
+    selectors?: {
+      item: string;
+      title: string;
+      link: string;
+      date?: string;
+    };
   };
   notifications: {
     telegram: boolean;

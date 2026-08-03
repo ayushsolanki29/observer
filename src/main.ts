@@ -3,6 +3,7 @@ import { loadMonitors } from './config/monitorLoader';
 import { JsonStorage } from './infrastructure/storage/JsonStorage';
 import { HtmlFetcher } from './infrastructure/http/HtmlFetcher';
 import { GtuParser } from './infrastructure/parser/GtuParser';
+import { GenericParser } from './infrastructure/parser/GenericParser';
 import { TelegramNotifier } from './infrastructure/notification/TelegramNotifier';
 import { RuleMatcher } from './services/RuleMatcher';
 import { MonitorRunner } from './services/MonitorRunner';
@@ -18,6 +19,8 @@ const fetcherRegistry: Record<string, new () => Fetcher> = {
 const parserRegistry: Record<string, new () => Parser> = {
   gtu: GtuParser,
   GtuParser: GtuParser,
+  generic: GenericParser,
+  GenericParser: GenericParser,
 };
 
 async function main() {

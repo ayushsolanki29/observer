@@ -28,7 +28,7 @@ export class MonitorRunner {
       const content = await this.fetcher.fetch(monitor);
       this.logger.info(logCtx, 'Fetched');
 
-      const rawNotices = this.parser.parse(content);
+      const rawNotices = this.parser.parse(content, monitor);
       this.logger.info({ ...logCtx, count: rawNotices.length }, 'Parsed');
 
       let newMatches = 0;

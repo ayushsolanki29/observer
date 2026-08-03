@@ -3,35 +3,28 @@ import { Parser } from '../../core/Parser';
 import { Notice } from '../../core/Notice';
 import { Monitor } from '../../core/Monitor';
 
-export class GtuParser implements Parser {
+export class GenericParser implements Parser {
   parse(content: string, monitor: Monitor): Omit<Notice, 'hash' | 'createdAt'>[] {
     const startTime = Date.now();
     const notices: Omit<Notice, 'hash' | 'createdAt'>[] = [];
     let skipped = 0;
 
+    const selectors = monitor.website.selectors;
+    if (!selectors || !selectors.item || !selectors.title || !selectors.link) {
+      console.error(`[GenericParser] Missing required selectors for monitor ${monitor.id}. Skipping parse.`);
+      return [];
+    }
+
     try {
       const $ = cheerio.load(content);
 
-      $('div.tonews').each((_, element) => {
+      $(selectors.item).each((_, element) => {
         try {
           const $el = $(element);
           
-          const dateText = $el.find('span').first().text();
-          
-          // Find the actual link, avoiding "Read More" links
-          const $links = $el.find('a');
-          let $targetLink = $links.first();
-          
-          $links.each((i, link) => {
-             const href = $(link).attr('href');
-             if (href && href !== '#' && href.trim() !== '') {
-               $targetLink = $(link);
-               return false; // break
-             }
-          });
-
-          let title = $targetLink.text();
-          let url = $targetLink.attr('href');
+          let title = $el.find(selectors.title).text();
+          let url = $el.find(selectors.link).attr('href');
+          let dateText = selectors.date ? $el.find(selectors.date).text() : undefined;
           
           // Clean up whitespace
           title = title ? title.replace(/\s+/g, ' ').trim() : '';
@@ -44,10 +37,11 @@ export class GtuParser implements Parser {
           }
 
           if (url && !url.startsWith('http')) {
+            const baseUrl = new URL(monitor.website.url);
             if (url.startsWith('/')) {
-              url = `https://www.gtu.ac.in${url}`;
+              url = `${baseUrl.origin}${url}`;
             } else {
-              url = `https://www.gtu.ac.in/${url}`;
+              url = `${baseUrl.href.replace(/\/$/, '')}/${url}`;
             }
           }
 
@@ -66,7 +60,7 @@ export class GtuParser implements Parser {
     }
 
     const duration = Date.now() - startTime;
-    console.log(`[GtuParser] Found: ${notices.length} notices | Skipped: ${skipped} | Duration: ${duration}ms`);
+    console.log(`[GenericParser] Found: ${notices.length} notices | Skipped: ${skipped} | Duration: ${duration}ms`);
 
     return notices;
   }

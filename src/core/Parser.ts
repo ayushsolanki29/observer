@@ -1,5 +1,6 @@
 import { Notice } from './Notice';
+import { Monitor } from './Monitor';
 
 export interface Parser {
-  parse(content: string): Omit<Notice, 'hash' | 'createdAt'>[];
+  parse(content: string, monitor: Monitor): Omit<Notice, 'hash' | 'createdAt'>[];
 }

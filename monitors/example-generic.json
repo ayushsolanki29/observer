@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "id": "hacker-news",
+  "name": "Hacker News (Generic Parser Example)",
+  "description": "Example of using GenericParser to monitor Hacker News titles",
+  "enabled": false,
+  "tags": ["news", "tech", "example"],
+  "website": {
+    "url": "https://news.ycombinator.com/",
+    "parser": "GenericParser",
+    "selectors": {
+      "item": "tr.athing",
+      "title": "span.titleline > a",
+      "link": "span.titleline > a",
+      "date": "span.age"
+    }
+  },
+  "notifications": {
+    "telegram": true
+  },
+  "matching": {
+    "mustMatch": [],
+    "shouldMatch": [
+      {
+        "keyword": "AI",
+        "score": 5
+      },
+      {
+        "keyword": "TypeScript",
+        "score": 5
+      }
+    ],
+    "mustNotMatch": ["Ask HN:"],
+    "minimumScore": 5
+  }
+}
