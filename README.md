@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ayushsolanki29/observer/)
 
+![Observer](docs/Gemini_Generated_Image_lxo761lxo761lxo7.png)
+
 Observer is a lightweight, generic open-source website monitoring engine. It checks target websites periodically and sends you Telegram notifications when new content matches your criteria.
 
 Designed to be fully configurable without writing any code, you simply create JSON monitor configurations.
