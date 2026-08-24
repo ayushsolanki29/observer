@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "monitors": {
+    "gtu-mca": {
+      "hashes": {
+        "8ef677f5d0e0fa11b6c9d3324bf3bedc559f39f74b5c897bbbe806e67eedafd7": {
+          "title": "Notification for Result Declaration of Master of Computer Applications Sem-1 (Remedial) of Summer-2026 Examination",
+          "url": "https://s3-ap-southeast-1.amazonaws.com/gtusitecirculars/uploads/MCASem1RemRecheck_147418.pdf",
+          "publishedAt": "17-Aug-2026",
+          "createdAt": "2026-08-24T18:51:05.483Z"
+        },
+        "f9f397d1b4b160e1a4197d908ea175a857f7022e23c6957d8e2839915c26ff4f": {
+          "title": "Notification for Result Declaration of Master of Computer Applications Sem-2 (Remedial) of Summer-2026 Examination",
+          "url": "https://s3-ap-southeast-1.amazonaws.com/gtusitecirculars/uploads/MCASem2RemRecheck(2)_326682.pdf",
+          "publishedAt": "17-Aug-2026",
+          "createdAt": "2026-08-24T18:51:05.483Z"
+        },
+        "67821dbbf6263f49d3c6fcc3e7ceaa0c69473f72790a802c760d7d45b5c361ca": {
+          "title": "Notification for Result Declaration of Master of Computer Applications Sem-2 (Regular) of Summer-2026 Examination",
+          "url": "https://s3-ap-southeast-1.amazonaws.com/gtusitecirculars/uploads/MCASem2RegRecheck_626098.pdf",
+          "publishedAt": "17-Aug-2026",
+          "createdAt": "2026-08-24T18:51:05.483Z"
+        },
+        "68ed9aebb6f10557da02d1b7ef5f1259437dcc42e87caa04688859d668226c5f": {
+          "title": "Notification for Result Declaration of Master of Computer Applications Sem-3 (Remedial) Recheck/Reassessment of Summer-2026 Examination",
+          "url": "https://s3-ap-southeast-1.amazonaws.com/gtusitecirculars/uploads/MCA3REMRECHECK_953483.pdf",
+          "publishedAt": "06-Aug-2026",
+          "createdAt": "2026-08-24T18:51:05.483Z"
+        }
+      }
+    }
+  }
+}
